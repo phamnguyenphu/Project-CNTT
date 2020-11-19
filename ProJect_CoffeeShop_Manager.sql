@@ -1,8 +1,8 @@
-﻿CREATE DATABASE PROJECT_COFFEESHOP_MANAGER
+﻿CREATE DATABASE PROJECT_COFFEESHOP_MANAGER1
 GO
 -- TẠO DATABASE
 
-USE PROJECT_COFFEESHOP_MANAGER
+USE PROJECT_COFFEESHOP_MANAGER1
 GO
 
 -- Các table cần tạo trong quản lí coffee shop
@@ -398,8 +398,8 @@ GO
  
 
 -- Hàm trigger để update bàn sau khi thanh toán
-ALTER TRIGGER Update_Bill_Information
-ON dbo.Bill_Information FOR INSERT, UPDATE
+CREATE TRIGGER Update_Bill_Information
+ON dbo.Bill_Information AFTER INSERT, UPDATE
 AS
 BEGIN
 	DECLARE @idBill INT
@@ -414,9 +414,11 @@ BEGIN
 END
 GO
 
+drop trigger Update_Bill_Information 
+GO
 
-ALTER TRIGGER Update_Bill_Status
-ON dbo.Bill_Status FOR UPDATE
+CREATE TRIGGER Update_Bill_Status	
+ON dbo.Bill_Status AFTER UPDATE
 AS
 BEGIN
 	DECLARE @idBill INT
