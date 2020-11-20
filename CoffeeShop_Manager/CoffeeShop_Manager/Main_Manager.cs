@@ -164,12 +164,13 @@ namespace CoffeeShop_Manager
             Table_Customer table_customer = lsv_Bill.Tag as Table_Customer;
 
             int idBill = Bill_Status_DA.Instance.GetUncheckBillIDByTableID(table_customer.ID);
+            float totalPrice = (float)Convert.ToDouble(txt_Total_Price.Text.Split(',')[0])*1000;
 
             if (idBill != -1)
             {
                 if (MessageBox.Show("Bạn có chắc thanh toán hóa đơn cho bàn " + table_customer.Name, "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                 {
-                    Bill_Status_DA.Instance.Pay_Table_Customer(idBill);
+                    Bill_Status_DA.Instance.Pay_Table_Customer(idBill, totalPrice);
                     HienThi_HoaDon(table_customer.ID);
                     
                     Load_Table_Customer();

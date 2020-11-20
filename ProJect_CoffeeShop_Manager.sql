@@ -438,7 +438,20 @@ BEGIN
 END
 GO
 
+alter table dbo.Bill_Status add totalPrice float
 
 DELETE dbo.Bill_Status
 DELETE dbo.Bill_Information
-        
+
+select * from Bill_Status
+
+-- tạo store produre cho việc lấy danh sách bill qua thời gian checkin và checkout
+create proc GetListBillByTime
+@checkin date, @checkout date
+as
+begin
+	select t.Name_Table [Table name], b.totalPrice as [Total Price], Time_Checkin as [Checkin Time], Time_Checkout as [Checkout Time]
+	from Bill_Status as b, Table_Customer as t
+	where Time_Checkin >= @checkin and Time_Checkout <= @checkout and b.Status_bill = 1 and t.Id_Table = b.Id_Table 
+end
+go

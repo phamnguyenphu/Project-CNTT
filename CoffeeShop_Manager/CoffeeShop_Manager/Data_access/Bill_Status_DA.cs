@@ -36,13 +36,17 @@ namespace CoffeeShop_Manager.Data_access
 
 
         // Hàm xử lí thanh toán, sử dụng để update bàn lại trạng thái ban đầu sau khi thanh toán
-        public void Pay_Table_Customer(int id)
+        public void Pay_Table_Customer(int id, float totalPrice)
         {
-            string query = "UPDATE dbo.Bill_Status SET Status_bill = 1 WHERE Id_Bill_Status = " + id;
+            string query = "UPDATE dbo.Bill_Status SET Time_Checkout = GETDATE(), Status_bill = 1 " + ", totalPrice = " + totalPrice + " WHERE Id_Bill_Status = " + id;
             DataProvider.Instance.ExecuteNonQuery(query);
-           
+             
         }
 
+        public DataTable Danhsachbill_theothoigian(DateTime checkin, DateTime checkout)
+        {
+            return DataProvider.Instance.ExecuteQuery("exec GetListBillByTime @checkin , @checkout", new object[] { checkin, checkout });
+        }
 
         // Hàm insert bill mới từ client sang database
         public void InsertBill(int id)
