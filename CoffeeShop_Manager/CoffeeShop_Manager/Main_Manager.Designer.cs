@@ -52,6 +52,7 @@
             this.cmb_Products = new System.Windows.Forms.ComboBox();
             this.cmb_Products_Category = new System.Windows.Forms.ComboBox();
             this.flp_Table_Customer = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -156,8 +157,9 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel3.Controls.Add(this.Minimize);
             this.panel3.Controls.Add(this.btn_Logout);
+            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.Minimize);
             this.panel3.Controls.Add(this.btn_Table_Manager);
             this.panel3.Controls.Add(this.btn_Products_Manager);
             this.panel3.Controls.Add(this.label2);
@@ -185,7 +187,7 @@
             this.btn_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Logout.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Logout.Location = new System.Drawing.Point(683, 25);
+            this.btn_Logout.Location = new System.Drawing.Point(888, 24);
             this.btn_Logout.Name = "btn_Logout";
             this.btn_Logout.Size = new System.Drawing.Size(140, 50);
             this.btn_Logout.TabIndex = 3;
@@ -316,6 +318,20 @@
             this.flp_Table_Customer.Size = new System.Drawing.Size(522, 418);
             this.flp_Table_Customer.TabIndex = 6;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(83)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(686, 25);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(140, 50);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Sales";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Main_Manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -368,5 +384,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Button button1;
     }
 }

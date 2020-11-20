@@ -40,9 +40,7 @@ namespace CoffeeShop_Manager.Data_access
         {
             string query = "UPDATE dbo.Bill_Status SET Status_bill = 1 WHERE Id_Bill_Status = " + id;
             DataProvider.Instance.ExecuteNonQuery(query);
-            
-            //string query1 = "DELETE dbo.Bill_Information WHERE Id_Bill_Status = " + id;
-            //DataProvider.Instance.ExecuteNonQuery(query1);
+           
         }
 
 

@@ -50,3 +50,4 @@ C:\Users\phamn\OneDrive\Máy tính\ĐỒ ÁN CNTT\Project CNTT\CoffeeShop_Mana
 C:\Users\phamn\OneDrive\Máy tính\ĐỒ ÁN CNTT\Project CNTT\CoffeeShop_Manager\CoffeeShop_Manager\obj\Debug\CoffeeShop_Manager.csproj.CoreCompileInputs.cache
 C:\Users\phamn\OneDrive\Máy tính\ĐỒ ÁN CNTT\Project CNTT\CoffeeShop_Manager\CoffeeShop_Manager\obj\Debug\CoffeeShop_Manager.exe
 C:\Users\phamn\OneDrive\Máy tính\ĐỒ ÁN CNTT\Project CNTT\CoffeeShop_Manager\CoffeeShop_Manager\obj\Debug\CoffeeShop_Manager.pdb
+C:\Users\phamn\OneDrive\Máy tính\ĐỒ ÁN CNTT\Project CNTT\CoffeeShop_Manager\CoffeeShop_Manager\obj\Debug\CoffeeShop_Manager.Sales.resources

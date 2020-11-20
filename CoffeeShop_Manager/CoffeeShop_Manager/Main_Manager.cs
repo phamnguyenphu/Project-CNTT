@@ -188,13 +188,17 @@ namespace CoffeeShop_Manager
         }
 
        
-
+        // Click vào form Table_Manager
         private void btn_Table_Manager_Click(object sender, EventArgs e)
         {
             Table_Manager table_Manager = new Table_Manager();
             table_Manager.ShowDialog();
         }
 
+
+        
+        
+        
         private void btn_Logout_Click_1(object sender, EventArgs e)
         {
             this.Close();
@@ -203,6 +207,13 @@ namespace CoffeeShop_Manager
         private void Minimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        // Click vào form Sales
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Sales sales = new Sales();
+            sales.ShowDialog();
         }
     }
 }
