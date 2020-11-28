@@ -82,14 +82,15 @@ namespace CoffeeShop_Manager
         //                                          CHỨC NĂNG ĐĂNG NHẬP
         //Load form Main_manager khi click button Login và kiểm tra điều kiện đúng hay sai tài khoản mật khẩu ở database
         // User 1: phamnguyenphu -- pass: nguyenphu2
-        // User 2: phamthanhtrung -- pass: 123456
+        // User 2: 
         private void btn_Login_Click(object sender, EventArgs e)
         {
             string userName = txt_UserName.Text;
             string passWord = txt_Password.Text;
             if (Login(userName,passWord))
             {
-                Main_Manager form_main_manager = new Main_Manager();
+                Data_transfer.Account_User loginAccount = Account_UserDA.Instance.Lay_thong_tin_tk_byUserName(userName);
+                Main_Manager form_main_manager = new Main_Manager(loginAccount);
                 this.Hide();
                 form_main_manager.ShowDialog();
                 this.Show();

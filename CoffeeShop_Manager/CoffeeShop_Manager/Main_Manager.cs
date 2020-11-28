@@ -16,9 +16,17 @@ namespace CoffeeShop_Manager
 {
     public partial class Main_Manager : Form
     {
-        public Main_Manager()
+        private Account_User loginAccount;
+
+        public Account_User LoginAccount {
+            get { return loginAccount; }
+            set { loginAccount = value; KiemTraTk_admin_or_staff(loginAccount.Type); }
+        }
+
+        public Main_Manager(Account_User account)
         {
             InitializeComponent();
+            this.loginAccount = account;
 
             // Load dữ liệu bảng table_customer lên form
             Load_Table_Customer();
@@ -26,10 +34,21 @@ namespace CoffeeShop_Manager
             // Load dữ liệu vào comboBox Products_Category để select thể loại món
             Load_Products_Category();
 
-          
-        }
+            // hàm kiểm tra xem tài khoản đăng nhập có phải tài khoản admin hay nhân viên.
+            // Nếu type account = 1 tức là admin, ngược lại là nhân viên
+            KiemTraTk_admin_or_staff(account.Type);
+        } 
 
         // Định nghĩa hàm
+
+        // hàm kiểm tra xem tài khoản đăng nhập có phải tài khoản admin hay nhân viên.
+        // Nếu type account = 1 tức là admin, ngược lại là nhân viên
+        void KiemTraTk_admin_or_staff(int type)
+        {
+            btn_Sales.Enabled = type == 1;
+            btn_Profile.Text += " (" + LoginAccount.DisplayName + ") ";
+            
+        }
         // Hàm load table customer
         void Load_Table_Customer()
         {
@@ -216,5 +235,20 @@ namespace CoffeeShop_Manager
             Sales sales = new Sales();
             sales.ShowDialog();
         }
+        // Click vào form Profile
+        private void btn_Profile_Click(object sender, EventArgs e)
+        {
+            Profile profile = new Profile(loginAccount);
+            profile.CapNhatThongTinTaiKhoan += profile_CapNhatThongTinTaiKhoan;
+            profile.ShowDialog();
+        }
+
+        void profile_CapNhatThongTinTaiKhoan(object sender, AccountEvent e)
+        {
+            btn_Profile.Text = "Profile (" + e.Acc.DisplayName + ")";
+        }
+       
+
     }
+
 }

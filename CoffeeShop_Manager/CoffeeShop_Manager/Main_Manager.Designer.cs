@@ -40,8 +40,9 @@
             this.txt_Total_Price = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.Minimize = new System.Windows.Forms.PictureBox();
             this.btn_Logout = new System.Windows.Forms.Button();
+            this.btn_Sales = new System.Windows.Forms.Button();
+            this.Minimize = new System.Windows.Forms.PictureBox();
             this.btn_Table_Manager = new System.Windows.Forms.Button();
             this.btn_Products_Manager = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,7 +53,7 @@
             this.cmb_Products = new System.Windows.Forms.ComboBox();
             this.cmb_Products_Category = new System.Windows.Forms.ComboBox();
             this.flp_Table_Customer = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_Profile = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -157,8 +158,9 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panel3.Controls.Add(this.btn_Profile);
             this.panel3.Controls.Add(this.btn_Logout);
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.btn_Sales);
             this.panel3.Controls.Add(this.Minimize);
             this.panel3.Controls.Add(this.btn_Table_Manager);
             this.panel3.Controls.Add(this.btn_Products_Manager);
@@ -168,6 +170,34 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1205, 100);
             this.panel3.TabIndex = 5;
+            // 
+            // btn_Logout
+            // 
+            this.btn_Logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(83)))));
+            this.btn_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Logout.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Logout.Location = new System.Drawing.Point(1026, 25);
+            this.btn_Logout.Name = "btn_Logout";
+            this.btn_Logout.Size = new System.Drawing.Size(140, 50);
+            this.btn_Logout.TabIndex = 3;
+            this.btn_Logout.Text = "Log out";
+            this.btn_Logout.UseVisualStyleBackColor = false;
+            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click_1);
+            // 
+            // btn_Sales
+            // 
+            this.btn_Sales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(83)))));
+            this.btn_Sales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Sales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Sales.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Sales.Location = new System.Drawing.Point(656, 24);
+            this.btn_Sales.Name = "btn_Sales";
+            this.btn_Sales.Size = new System.Drawing.Size(140, 50);
+            this.btn_Sales.TabIndex = 15;
+            this.btn_Sales.Text = "Sales";
+            this.btn_Sales.UseVisualStyleBackColor = false;
+            this.btn_Sales.Click += new System.EventHandler(this.button1_Click);
             // 
             // Minimize
             // 
@@ -181,27 +211,13 @@
             this.Minimize.TabStop = false;
             this.Minimize.Click += new System.EventHandler(this.Minimize_Click);
             // 
-            // btn_Logout
-            // 
-            this.btn_Logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(83)))));
-            this.btn_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Logout.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Logout.Location = new System.Drawing.Point(888, 24);
-            this.btn_Logout.Name = "btn_Logout";
-            this.btn_Logout.Size = new System.Drawing.Size(140, 50);
-            this.btn_Logout.TabIndex = 3;
-            this.btn_Logout.Text = "Log out";
-            this.btn_Logout.UseVisualStyleBackColor = false;
-            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click_1);
-            // 
             // btn_Table_Manager
             // 
             this.btn_Table_Manager.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(83)))));
             this.btn_Table_Manager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Table_Manager.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Table_Manager.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Table_Manager.Location = new System.Drawing.Point(483, 25);
+            this.btn_Table_Manager.Location = new System.Drawing.Point(471, 24);
             this.btn_Table_Manager.Name = "btn_Table_Manager";
             this.btn_Table_Manager.Size = new System.Drawing.Size(140, 50);
             this.btn_Table_Manager.TabIndex = 2;
@@ -318,19 +334,19 @@
             this.flp_Table_Customer.Size = new System.Drawing.Size(522, 418);
             this.flp_Table_Customer.TabIndex = 6;
             // 
-            // button1
+            // btn_Profile
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(83)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(686, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 50);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Sales";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_Profile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(200)))), ((int)(((byte)(83)))));
+            this.btn_Profile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Profile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Profile.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Profile.Location = new System.Drawing.Point(841, 24);
+            this.btn_Profile.Name = "btn_Profile";
+            this.btn_Profile.Size = new System.Drawing.Size(140, 50);
+            this.btn_Profile.TabIndex = 16;
+            this.btn_Profile.Text = "Profile";
+            this.btn_Profile.UseVisualStyleBackColor = false;
+            this.btn_Profile.Click += new System.EventHandler(this.btn_Profile_Click);
             // 
             // Main_Manager
             // 
@@ -384,6 +400,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_Sales;
+        private System.Windows.Forms.Button btn_Profile;
     }
 }

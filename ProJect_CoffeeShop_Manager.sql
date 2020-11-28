@@ -86,21 +86,21 @@ GO
 
 
 -- Thực hiện việc insert dữ liệu cho các bảng
+-- Nhập dữ liệu cho bảng account-user
 INSERT INTO dbo.Account_User
-        ( UserName_AccountUser ,
-          PassWord_AccountUser
-        )
-VALUES  ( N'phamnguyenphu' , -- UserName_AccountUser - nvarchar(50)
-          N'nguyenphu2'  -- PassWord_AccountUser - nvarchar(50)
-        )
+        ( UserName_AccountUser, PassWord_AccountUser, DisplayName, Type_Account )
+VALUES  ( N'phamnguyenphu', -- Name_Table - nvarchar(50)
+          N'nguyenphu2',  -- Status_Table - nvarchar(50)
+		  N'Phạm Nguyên Phú', -- DisplayName - nvarchar(100)
+		  1 -- type -- int
+          )
 INSERT INTO dbo.Account_User
-        ( UserName_AccountUser ,
-          PassWord_AccountUser
-        )
-VALUES  ( N'phamthanhtrung' , -- UserName_AccountUser - nvarchar(50)
-          N'123456'  -- PassWord_AccountUser - nvarchar(50)
-        )
-GO
+        ( UserName_AccountUser, PassWord_AccountUser, DisplayName, Type_Account )
+VALUES  ( N'thungan', -- Name_Table - nvarchar(50)
+          N'1m64',  -- Status_Table - nvarchar(50)
+		  N'Thu Ngân', -- DisplayName - nvarchar(100)
+		  0 -- type -- int
+          )
 
 -- Tạo hàm user procedure cho login -- BẢNG ACCOUNT USER --> LÀM TÍNH NĂNG ĐĂNG NHẬP
 CREATE PROC USP_Login
@@ -454,4 +454,31 @@ begin
 	from Bill_Status as b, Table_Customer as t
 	where Time_Checkin >= @checkin and Time_Checkout <= @checkout and b.Status_bill = 1 and t.Id_Table = b.Id_Table 
 end
+go
+
+-- thêm cột cho bảng Account User
+alter table dbo.Account_User add DisplayName nvarchar(100)
+alter table dbo.Account_User add Type_Account int 
+
+
+select * from Account_User
+
+create proc UpdateAccountUser
+@userName nvarchar(100), @displayName nvarchar(100), @password nvarchar(100), @newPassword nvarchar(100)
+as
+begin
+	DECLARE @isRightPass INT = 0
+	
+	SELECT @isRightPass = COUNT(*) FROM dbo.Account_User WHERE UserName_AccountUser = @userName AND PassWord_AccountUser = @password
+	
+	IF (@isRightPass = 1)
+	BEGIN
+		IF (@newPassword = NULL OR @newPassword = '')
+		BEGIN
+			UPDATE dbo.Account_User SET DisplayName = @displayName WHERE UserName_AccountUser = @userName
+		END		
+		ELSE
+			UPDATE dbo.Account_User SET DisplayName = @displayName, PassWord_AccountUser = @newPassword WHERE UserName_AccountUser = @userName
+	end
+end 
 go
