@@ -13,15 +13,18 @@ namespace CoffeeShop_Manager
 {
     public partial class Table_Manager : Form
     {
+        BindingSource bindingTable = new BindingSource();
         public Table_Manager()
         {
             InitializeComponent();
             Load_Table_customer();
+            addBindingTable();
         }
 
         void Load_Table_customer()
         {
-            dtgv_Table.DataSource = Table_CustomerDA.Instance.GetListTable();
+            dtgv_Table.DataSource = bindingTable;
+            bindingTable.DataSource = Table_CustomerDA.Instance.GetListTable();
         }
 
         private void btn_Exit_Click(object sender, EventArgs e)
@@ -80,6 +83,14 @@ namespace CoffeeShop_Manager
             {
                 MessageBox.Show("Thực hiện việc xóa thông tin bàn không đúng");
             }
+        }
+
+        //Add binding
+
+        void addBindingTable()
+        {
+            txt_Table_Name.DataBindings.Add(new Binding("Text", dtgv_Table.DataSource, "Name"));
+            txt_Table_ID.DataBindings.Add(new Binding("Text", dtgv_Table.DataSource, "ID"));
         }
     }
 }

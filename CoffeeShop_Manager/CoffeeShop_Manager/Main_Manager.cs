@@ -55,15 +55,15 @@ namespace CoffeeShop_Manager
             flp_Table_Customer.Controls.Clear();
             List<Table_Customer> tableList = Table_CustomerDA.Instance.LoadTableList();
 
-            
+
             foreach (Table_Customer item in tableList)
             {
-                Button btn_Table_Customer = new Button()  { Width = Table_CustomerDA.TableWidth, Height = Table_CustomerDA.TableHeight };
+                Button btn_Table_Customer = new Button() { Width = Table_CustomerDA.TableWidth, Height = Table_CustomerDA.TableHeight };
                 btn_Table_Customer.FlatStyle = FlatStyle.Flat;
                 btn_Table_Customer.ForeColor = Color.White;
 
                 btn_Table_Customer.Text = item.Name + Environment.NewLine + item.Status + Environment.NewLine;
-                btn_Table_Customer.Click += Btn_Table_Customer_Click;           
+                btn_Table_Customer.Click += Btn_Table_Customer_Click;
                 btn_Table_Customer.Tag = item;
 
 
@@ -76,8 +76,8 @@ namespace CoffeeShop_Manager
                             btn_Table_Customer.ImageAlign = ContentAlignment.BottomCenter;
                             break;
                         }
-                        
-                        
+
+
                     case "Bàn có người":
                         {
                             btn_Table_Customer.BackColor = Color.Red;

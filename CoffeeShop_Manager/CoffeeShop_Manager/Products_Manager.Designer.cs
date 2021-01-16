@@ -91,6 +91,7 @@
             this.txt_Products_ID.Name = "txt_Products_ID";
             this.txt_Products_ID.Size = new System.Drawing.Size(191, 15);
             this.txt_Products_ID.TabIndex = 21;
+            this.txt_Products_ID.TextChanged += new System.EventHandler(this.txt_Products_ID_TextChanged);
             // 
             // txt_Produ
             // 

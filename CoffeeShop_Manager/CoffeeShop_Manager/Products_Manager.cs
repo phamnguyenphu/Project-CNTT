@@ -14,15 +14,18 @@ namespace CoffeeShop_Manager
 {
     public partial class Products_Manager : Form
     {
+        BindingSource bindingProducts = new BindingSource();
         public Products_Manager()
         {
             InitializeComponent();
             Load_Products();
             Load_Products_Category_Into_Combobox(cmb_Category);
+            addBindingProducts();
         }
         void Load_Products()
         {
-            dtgv_Products.DataSource = Products_DA.Instance.Get_List_Products();
+            dtgv_Products.DataSource = bindingProducts;
+            bindingProducts.DataSource = Products_DA.Instance.Get_List_Products();
         }
 
         private void btn_Exit_Click(object sender, EventArgs e)
@@ -92,6 +95,36 @@ namespace CoffeeShop_Manager
             {
                 MessageBox.Show("Thực hiện việc xóa sản phẩm không đúng");
             }
+        }
+
+        void addBindingProducts()
+        {
+            txt_Products_ID.DataBindings.Add(new Binding("Text", dtgv_Products.DataSource, "ID"));
+            txt_Products_Name.DataBindings.Add(new Binding("Text", dtgv_Products.DataSource, "Name"));
+            nbr_Products_Price.DataBindings.Add(new Binding("Text", dtgv_Products.DataSource, "Price"));
+        }
+
+        private void txt_Products_ID_TextChanged(object sender, EventArgs e)
+        {
+           if (dtgv_Products.SelectedCells.Count > 0)
+            {
+                int id = (int)dtgv_Products.SelectedCells[0].OwningRow.Cells["CategoryID"].Value;
+                Products_Category category = Products_Category_DA.Instance.GetCategoryByID(id);
+                cmb_Category.SelectedItem = category;
+                int index = -1;
+                int i = 0;
+                foreach (Products_Category item in cmb_Category.Items)
+                {
+                    if (item.ID == category.ID)
+                    {
+                        index = i;
+                        break;
+                    }
+                    i++;
+
+                }
+                cmb_Category.SelectedIndex = index;
+            }    
         }
     }
 }
