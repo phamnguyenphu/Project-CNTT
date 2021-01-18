@@ -72,7 +72,7 @@ namespace CoffeeShop_Manager
                     case "Bàn trống":
                         {
                             btn_Table_Customer.BackColor = Color.FromArgb(0, 200, 83);
-                            btn_Table_Customer.Image = Image.FromFile("C:/Users/phamn/OneDrive/Máy tính/ĐỒ ÁN CNTT/Project CNTT/CoffeeShop_Manager/CoffeeShop_Manager/img/icons8-checkmark-yes-32.png");
+                            //btn_Table_Customer.Image = Image.FromFile("C:/Users/phamn/OneDrive/Máy tính/ĐỒ ÁN CNTT/Project CNTT/CoffeeShop_Manager/CoffeeShop_Manager/img/icons8-checkmark-yes-32.png");
                             btn_Table_Customer.ImageAlign = ContentAlignment.BottomCenter;
                             break;
                         }
@@ -81,7 +81,7 @@ namespace CoffeeShop_Manager
                     case "Bàn có người":
                         {
                             btn_Table_Customer.BackColor = Color.Red;
-                            btn_Table_Customer.Image = Image.FromFile("C:/Users/phamn/OneDrive/Máy tính/ĐỒ ÁN CNTT/Project CNTT/CoffeeShop_Manager/CoffeeShop_Manager/img/icons8-no-entry-32.png");
+                            //btn_Table_Customer.Image = Image.FromFile("C:/Users/phamn/OneDrive/Máy tính/ĐỒ ÁN CNTT/Project CNTT/CoffeeShop_Manager/CoffeeShop_Manager/img/icons8-no-entry-32.png");
                             btn_Table_Customer.ImageAlign = ContentAlignment.BottomCenter;
                             break;
                         }
